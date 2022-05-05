@@ -2,7 +2,7 @@ package ss1_javaoverview.thuc_hanh;
 
 import java.util.Scanner;
 
-public class pt_bac_1 {
+public class Pt_Bac_1 {
     public static void main(String[] args) {
         System.out.println("Linear Equation Resolver");
         System.out.println("Given a equation as 'a*x+b=c', please enter constants");
