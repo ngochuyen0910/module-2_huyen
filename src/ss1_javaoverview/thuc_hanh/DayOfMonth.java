@@ -2,7 +2,7 @@ package ss1_javaoverview.thuc_hanh;
 
 import java.util.Scanner;
 
-public class Day_Of_Month {
+public class DayOfMonth {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

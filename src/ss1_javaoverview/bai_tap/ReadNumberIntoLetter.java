@@ -2,7 +2,7 @@ package ss1_javaoverview.bai_tap;
 
 import java.util.Scanner;
 
-public class Read_Number_Into_Letter {
+public class ReadNumberIntoLetter {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -13,7 +13,7 @@ public class Read_Number_Into_Letter {
         int number4 = (number % 100) / 10;
         int number5 = (number % 100) % 10;
 
-        String numberIntoLetter = "";
+//        String numberIntoLetter = "";
         String s1 = null, s2 = null, s3 = null;
 //        switch (number2) {
 //            case 1:

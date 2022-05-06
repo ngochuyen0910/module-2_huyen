@@ -2,7 +2,7 @@ package ss1_javaoverview.bai_tap;
 
 import java.util.Scanner;
 
-public class Doi_Tien {
+public class DoiTien {
     public static void main(String[] args) {
         double vnd = 23000;
         double usd;
