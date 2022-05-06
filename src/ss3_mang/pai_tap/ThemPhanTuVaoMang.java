@@ -5,17 +5,14 @@ import java.util.Scanner;
 
 public class ThemPhanTuVaoMang {
     public static void main(String[] args) {
-        int[] numArr = {1, 3, 3, 4, 5, 0, 0, 0, 0, 0};
+        int[] numArr = {1, 3, 3, 4, 5, 0};
         Scanner scanner = new Scanner(System.in);
-        boolean flag= false;
         int number = scanner.nextInt();
-        for (int i = 0; i < numArr.length; i++) {
-            if (number == numArr[i]) {
-                numArr[i] = numArr[i + 1];
-                numArr[i + 1]= numArr[i+2];
-            }
+        int index = scanner.nextInt();
+        for (int i = numArr.length - 1; i > index; i--) {
+            numArr[i] = numArr[i - 1];
         }
-        System.out.println(Arrays.toString(numArr));
-
+        numArr[index] = number;
+        System.out.print(Arrays.toString(numArr));
     }
 }
