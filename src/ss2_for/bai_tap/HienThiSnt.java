@@ -1,6 +1,6 @@
 package ss2_for.bai_tap;
 
-public class HienThi100Snt {
+public class HienThiSnt {
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
             int num = 2;
