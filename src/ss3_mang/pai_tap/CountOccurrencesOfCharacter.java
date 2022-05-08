@@ -1,6 +1,6 @@
 package ss3_mang.pai_tap;
 
-public class DemSoLanXuatHienCuaKyTu {
+public class CountOccurrencesOfCharacter {
     public static void main(String[] args) {
         String str = "Da Nang rat dep";
         int count = 0;

@@ -2,7 +2,7 @@ package ss3_mang.pai_tap;
 
 import java.util.Arrays;
 
-public class GopMang {
+public class MergeArray {
     public static void main(String[] args) {
         int[] numArr1 = {1, 3, 3, 4, 5};
         int[] numArr2 = {2, 3, 5, 6, 7};

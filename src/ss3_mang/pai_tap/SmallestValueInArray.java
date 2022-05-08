@@ -2,7 +2,7 @@ package ss3_mang.pai_tap;
 
 import java.util.Scanner;
 
-public class GiaTriNhoNhatTrongMang {
+public class SmallestValueInArray {
     public static void main(String[] args) {
         int size;
         int[] array;

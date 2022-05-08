@@ -2,7 +2,7 @@ package ss3_mang.pai_tap;
 
 import java.util.Scanner;
 
-public class TinhTongCacSoDuongCheoMang2d {
+public class SumColumns {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Chiều dài của mảng là : ");
@@ -14,25 +14,23 @@ public class TinhTongCacSoDuongCheoMang2d {
         for (int i = 0; i < width; i++) {
             array[i] = new int[length];
             for (int j = 0; j < length; j++) {
-                System.out.print("Các phần tử của mảng là : ");
+                System.out.print("Nhập phần tử mảng : ");
                 array[i][j] = Integer.parseInt(input.nextLine());
             }
         }
-        System.out.println("Mảng 2 chiều là : ");
-        for (int[] items : array) {
-            for (int anInt : items) {
+        System.out.println("Mảng 2 chiều : ");
+        for (int[] item : array) {
+            for (int anInt : item) {
                 System.out.print(anInt + " ");
             }
             System.out.print(" ");
         }
         int total = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (i == j) {
-                    total = total + array[i][j];
-                }
-            }
+        System.out.print("Cột muốn tính tổng là : ");
+        int column = Integer.parseInt(input.nextLine());
+        for (int[] item : array) {
+            total = total + item[column];
         }
-        System.out.println("tổng đường chéo của mảng là :" + total);
+        System.out.print("Tổng giá trị của cột " + column + " là: " + total);
     }
 }
