@@ -1,6 +1,6 @@
 package ss2_for.bai_tap;
 
-public class SoNgto {
+public class PrimeNumberCheck {
     public static void main(String[] args) {
         int number = 2;
         int count = 0;

@@ -2,7 +2,7 @@ package ss2_for.bai_tap;
 
 import java.util.Scanner;
 
-public class Hinh {
+public class Figure {
     public static void main(String[] args) {
         int choice = -1;
         Scanner scanner = new Scanner(System.in);
@@ -32,6 +32,33 @@ public class Hinh {
                     System.out.println("Nhập chiều cao");
                     int height = Integer.parseInt(scanner.nextLine());
                     for (int i = 1; i <= height; i++) {
+                        for (int j = 1; j <= i; j++) {
+                            System.out.print("*");
+                        }
+                        System.out.println(" ");
+                    }
+                    System.out.println(" ");
+                    for (int i = height; i > 0; i--) {
+                        for (int j = 1; j <= i; j++) {
+                            System.out.print("*");
+                        }
+                        System.out.println(" ");
+                    }
+                    System.out.println(" ");
+                    for (int i = 1; i <= height; i++) {
+                        for (int k = i; k < height; k++) {
+                            System.out.print(" ");
+                        }
+                        for (int j = 1; j <= i; j++) {
+                            System.out.print("*");
+                        }
+                        System.out.println(" ");
+                    }
+                    System.out.println(" ");
+                    for (int i = height; i > 0; i--) {
+                        for (int k = i; k < height; k++) {
+                            System.out.print(" ");
+                        }
                         for (int j = 1; j <= i; j++) {
                             System.out.print("*");
                         }
