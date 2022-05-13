@@ -1,8 +1,8 @@
 package ss6_ke_thua.pai_tap.point2D_point3D;
 
 public class Point2D {
-    float x = 0;
-    float y = 0;
+    private float x = 0;
+    private float y = 0;
 
     public Point2D() {
     }

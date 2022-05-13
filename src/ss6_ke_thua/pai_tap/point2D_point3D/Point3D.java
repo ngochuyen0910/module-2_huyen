@@ -20,7 +20,7 @@ public class Point3D extends Point2D {
         this.z = z;
     }
 
-    public void getXYZ(float x, float y, float z) {
+    public void setXYZ(float x, float y, float z) {
 
     }
 
@@ -32,8 +32,8 @@ public class Point3D extends Point2D {
     @Override
     public String toString() {
         return "(" +
-                "x=" + x +
-                ", y=" + y +
+                "x=" + this.getX() +
+                ", y=" + this.getY() +
                 ", z=" + z + ")";
     }
 }
