@@ -1,12 +1,12 @@
-package ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal.Test;
+package ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.Test;
 
-import ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal.Animal;
-import ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal.Chicken;
-import ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal.Tiger;
-import ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal.edible.Edible;
-import ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal.fruit.Fruit;
-import ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal.fruit.Apple;
-import ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal.fruit.Orange;
+import ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.animal.Animal;
+import ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.animal.Chicken;
+import ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.animal.Tiger;
+import ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.edible.Edible;
+import ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.fruit.Fruit;
+import ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.fruit.Apple;
+import ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.fruit.Orange;
 
 public class AbstractAndInterfaceTests {
     public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class AbstractAndInterfaceTests {
                 System.out.println(edibler.howToEat());
             }
         }
-        Fruit [] fruits = new Fruit[2];
+        Fruit[] fruits = new Fruit[2];
         fruits[0] = new Orange();
         fruits[1] = new Apple();
         for (Fruit fruit : fruits) {

@@ -1,4 +1,4 @@
-package ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal;
+package ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.animal;
 
 public class Tiger extends Animal {
     @Override

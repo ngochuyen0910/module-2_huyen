@@ -1,4 +1,4 @@
-package ss7_abstractClass_interface.thuc_hanh.Animal_InterfaceEdible.animal.fruit;
+package ss7_abstractClass_interface.thuc_hanh.animal_interfaceEdible.fruit;
 
 public class Apple extends Fruit {
     @Override
