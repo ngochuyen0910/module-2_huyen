@@ -1,8 +1,8 @@
 package ss6_ke_thua.pai_tap.point2D_point3D;
 
 public class Point2D {
-    private float x = 0;
-    private float y = 0;
+    float x = 0;
+    float y = 0;
 
     public Point2D() {
     }
@@ -40,7 +40,10 @@ public class Point2D {
 
     @Override
     public String toString() {
-        return x + "," + y;
+        return "(" +
+                "x=" + x +
+                ", y=" + y +
+                ')';
     }
 }
 
