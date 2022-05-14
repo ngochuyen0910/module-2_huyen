@@ -1,4 +1,4 @@
-package casestudy.preson;
+package casestudy.models.preson;
 
 public abstract class Preson {
     private String name;

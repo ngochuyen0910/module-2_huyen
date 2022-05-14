@@ -36,7 +36,7 @@ public abstract class Shape implements Resizeable {
                 + (isFilled() ? "filled" : "not filled");
     }
 
-    public static void printShape(Shape[] shape) {
+    public static void Shape(Shape[] shape) {
         for (Shape x : shape) {
             System.out.println(x.toString());
         }

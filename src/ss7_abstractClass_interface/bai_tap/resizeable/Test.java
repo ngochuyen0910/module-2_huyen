@@ -13,6 +13,6 @@ public class Test {
         for (Shape shape : shapes) {
             shape.resize(Math.random() * 100);
         }
-        Shape.printShape(shapes);
+        Shape.Shape(shapes);
     }
 }

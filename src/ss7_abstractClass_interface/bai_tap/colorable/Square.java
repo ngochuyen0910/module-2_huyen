@@ -37,6 +37,7 @@ public class Square extends Shape implements Colorable {
                 super.toString();
     }
 
+    @Override
     public String howToColor() {
         return "Color all four sides";
     }
