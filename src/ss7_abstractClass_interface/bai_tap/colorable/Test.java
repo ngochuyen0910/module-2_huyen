@@ -8,8 +8,7 @@ public class Test {
         for (Shape shape : shapes) {
             System.out.println(shape);
             if (shape instanceof Square) {
-                Colorable colorable = (Square) shape;
-                System.out.println(colorable.howToColor());
+                ((Square) shape).howToColor();
             }
         }
     }
