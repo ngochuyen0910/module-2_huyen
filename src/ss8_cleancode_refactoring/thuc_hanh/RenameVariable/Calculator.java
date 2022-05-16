@@ -1,4 +1,4 @@
-package ss8_cleancode_refactoring.thuc_hanh;
+package ss8_cleancode_refactoring.thuc_hanh.RenameVariable;
 
 public class Calculator {
 
