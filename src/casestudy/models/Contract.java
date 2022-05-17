@@ -1,4 +1,4 @@
-package casestudy.contract;
+package casestudy.models;
 
 public class Contract {
     private int numberContract;

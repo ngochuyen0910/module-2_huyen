@@ -1,6 +1,6 @@
 package casestudy.models.preson;
 
-public abstract class Preson {
+public abstract class Person {
     private String name;
     private int dateOfBirth;
     private boolean gender;
@@ -8,9 +8,9 @@ public abstract class Preson {
     private int phoneNumber;
     private String mail;
 
-    public Preson() {
+    public Person() {
     }
-    public Preson(String name, int dateOfBirth, boolean gender, int identityCard, int phoneNumber, String mail) {
+    public Person(String name, int dateOfBirth, boolean gender, int identityCard, int phoneNumber, String mail) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -66,5 +66,17 @@ public abstract class Preson {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", gender=" + gender +
+                ", identityCard=" + identityCard +
+                ", phoneNumber=" + phoneNumber +
+                ", mail='" + mail + '\'' +
+                '}';
     }
 }

@@ -1,6 +1,6 @@
-package casestudy.preson;
+package casestudy.models.preson;
 
-public class Customer extends Preson {
+public class Customer extends Person {
     private int customerCode;
     private String customerType;
     private String address;
@@ -35,4 +35,15 @@ public class Customer extends Preson {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                super.toString()+
+                "customerCode=" + customerCode +
+                ", customerType='" + customerType + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }
+

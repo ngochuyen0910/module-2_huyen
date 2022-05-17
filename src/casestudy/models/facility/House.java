@@ -1,6 +1,4 @@
-package casestudy.facility;
-
-import casestudy.facility.Facility;
+package casestudy.models.facility;
 
 public class House extends Facility {
     private String roomStandard;
@@ -26,6 +24,14 @@ public class House extends Facility {
         super(name, area, expense, people, rentalType);
         this.roomStandard = roomStandard;
         this.numberFloor = numberFloor;
+    }
 
+    @Override
+    public String toString() {
+        return "House{" +
+                super.toString() +
+                "roomStandard='" + roomStandard + '\'' +
+                ", numberFloor=" + numberFloor +
+                '}';
     }
 }

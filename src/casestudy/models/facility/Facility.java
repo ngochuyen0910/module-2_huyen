@@ -1,4 +1,4 @@
-package casestudy.facility;
+package casestudy.models.facility;
 
 public abstract class Facility {
     private String serviceName;
@@ -58,4 +58,14 @@ public abstract class Facility {
         this.rentalType = rentalType;
     }
 
+    @Override
+    public String toString() {
+        return "Facility{" +
+                "serviceName='" + serviceName + '\'' +
+                ", area=" + area +
+                ", expense=" + expense +
+                ", people=" + people +
+                ", rentalType='" + rentalType + '\'' +
+                '}';
+    }
 }

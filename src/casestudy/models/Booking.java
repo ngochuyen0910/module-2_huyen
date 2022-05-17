@@ -1,4 +1,4 @@
-package casestudy.booking;
+package casestudy.models;
 
 import java.time.LocalTime;
 

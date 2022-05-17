@@ -1,6 +1,6 @@
-package casestudy.preson;
+package casestudy.models.preson;
 
-public class Employee extends Preson{
+public class Employee extends Person{
     private int number;
     private String level;
     private String location;
@@ -34,5 +34,15 @@ public class Employee extends Preson{
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                super.toString()+
+                "number=" + number +
+                ", level='" + level + '\'' +
+                ", location='" + location + '\'' +
+                '}';
     }
 }
