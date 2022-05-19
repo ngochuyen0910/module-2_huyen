@@ -1,0 +1,42 @@
+package ss11_stack_queue.thuc_hanh.my_stack;
+
+public class StackClient {
+    public static void main(String[] as) throws Exception {
+        MyStack stack = new MyStack(5);
+
+        stack.push(5);
+        stack.push(4);
+        stack.push(3);
+        stack.push(2);
+        stack.push(1);
+
+        System.out.println("1. Size of stack after push operations: " + stack.size());
+        System.out.printf("2. Pop elements from stack : ");
+
+        while (!stack.isEmpty()) {
+            System.out.printf(" %d", stack.pop());
+        }
+
+        System.out.println("\n3. Size of stack after pop operations : " + stack.size());
+    }
+}
+//    Queue<Personnel> male = new ArrayDeque();
+//    Queue<Personnel> female = new ArrayDeque();
+//        for (Personnel personnel : personnels) {
+//                if (personnel.getGender().equals("Nam")) {
+//                male.add(personnel);
+//                } else {
+//                female.add(personnel);
+//                }
+//                }
+//
+//                while (!female.isEmpty()) {
+//                listSort.add(female.poll());
+//                }
+//                while (!male.isEmpty()) {
+//                listSort.add(male.poll());
+//                }
+//
+//                System.out.println("Danh sách sắp xếp theo ngày tháng năm sinh và giới tính: ");
+//                for (Personnel personnel : listSort) {
+//                System.out.println(personnel.toString())
