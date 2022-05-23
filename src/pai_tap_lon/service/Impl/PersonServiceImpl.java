@@ -4,9 +4,9 @@ import pai_tap_lon.models.NhanVienCongNhat;
 import pai_tap_lon.models.NhanVienQuanLy;
 import pai_tap_lon.models.NhanVienSanXuat;
 import pai_tap_lon.models.Persons;
-import pai_tap_lon.service.IPersonIService;
+import pai_tap_lon.service.IService;
 
-public class PersonServiceImpl implements IPersonIService {
+public class PersonServiceImpl implements IService {
     private static Persons[] persons = new Persons[1000];
 
     static {
@@ -28,6 +28,7 @@ public class PersonServiceImpl implements IPersonIService {
             }
         }
     }
+
     @Override
     public void displayNhanVienQuanLy() {
         for (Persons item : persons) {

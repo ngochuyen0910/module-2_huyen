@@ -5,6 +5,7 @@ import pai_tap_lon.models.NhanVienQuanLy;
 import pai_tap_lon.models.NhanVienSanXuat;
 import pai_tap_lon.models.Persons;
 import pai_tap_lon.service.IPersonIService;
+import pai_tap_lon.service.IService;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 // phần tử thì chậm hơn array list.
 // array list thì truy xuất phần tử nhanh hơn linked list, còn thêm và xóa phần tử thì chậm hơn
 
-public class PersonServiceLinkedList implements IPersonIService {
+public class PersonServiceLinkedList implements IService {
     public static List<Persons> personsList = new LinkedList<>();
 
     static {

@@ -1,6 +1,8 @@
 package pai_tap_lon.models;
 
-public class NhanVienSanXuat extends Persons {
+import pai_tap_lon.service.IPersonIService;
+
+public class NhanVienSanXuat extends Persons implements IPersonIService {
     private int productNumber;
 
     public NhanVienSanXuat() {
@@ -32,4 +34,8 @@ public class NhanVienSanXuat extends Persons {
         return productNumber * 50000;
     }
 
+    @Override
+    public String keepingTime() {
+        return " Đã chấm công ";
+    }
 }

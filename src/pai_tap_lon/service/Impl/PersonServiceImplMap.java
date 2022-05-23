@@ -4,13 +4,13 @@ import pai_tap_lon.models.NhanVienCongNhat;
 import pai_tap_lon.models.NhanVienQuanLy;
 import pai_tap_lon.models.NhanVienSanXuat;
 import pai_tap_lon.models.Persons;
-import pai_tap_lon.service.IPersonIService;
+import pai_tap_lon.service.IService;
 
 import java.util.LinkedHashMap;
 
 import java.util.Map;
 
-public class PersonServiceImplMap implements IPersonIService {
+public class PersonServiceImplMap implements IService {
     private static Map<Integer, Persons> personsMap = new LinkedHashMap<>();
 
     static {

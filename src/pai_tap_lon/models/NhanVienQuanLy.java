@@ -1,6 +1,9 @@
 package pai_tap_lon.models;
 
-public class NhanVienQuanLy extends Persons {
+import pai_tap_lon.service.IPersonIService;
+import pai_tap_lon.service.IService;
+
+public class NhanVienQuanLy extends Persons implements IPersonIService {
     private double salary;
     private int coefficientsSalary;
 
@@ -47,4 +50,8 @@ public class NhanVienQuanLy extends Persons {
         return this.salary * this.coefficientsSalary;
     }
 
+    @Override
+    public String keepingTime() {
+        return " Đã chấm công ";
+    }
 }

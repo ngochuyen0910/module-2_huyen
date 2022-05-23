@@ -1,7 +1,7 @@
 package pai_tap_lon.service.Impl;
 
 import pai_tap_lon.models.*;
-import pai_tap_lon.service.IPersonIService;
+import pai_tap_lon.service.IService;
 import pai_tap_lon.utils.ComparatorGiamSalary;
 import pai_tap_lon.utils.ComparatorName;
 import pai_tap_lon.utils.ComparatorSalary;
@@ -14,7 +14,7 @@ import java.util.List;
 // Ưu điểm của array list là kích thước có thể thay đổi k cần phải khởi tạo kích thước mảng trước,
 // còn nhược điểm là tốc độ xử lí chậm hơn so với array.
 
-public class PersonServiceImplArrayList implements IPersonIService {
+public class PersonServiceImplArrayList implements IService {
     public static List<Persons> personsList = new ArrayList<>();
 
     static {

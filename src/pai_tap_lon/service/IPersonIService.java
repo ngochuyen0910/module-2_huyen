@@ -1,4 +1,5 @@
 package pai_tap_lon.service;
 
-public interface IPersonIService extends IService {
+public interface IPersonIService {
+    String keepingTime();
 }
