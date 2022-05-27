@@ -1,11 +1,10 @@
-package ss17_IO_binary_file_serialization.thuc_hanh.copy_file_dung_luong_lon;
+package ss17_IO_binary_file_serialization.bai_tap.copy_file;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.Scanner;
 
-public class Main {
+public class CopyFile {
     private static void copyFileUsingJava7Files(File source, File dest) throws IOException {
         Files.copy(source.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
     }
@@ -28,23 +27,15 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-
-        System.out.printf("Enter source file:");
-        String sourcePath = in.nextLine();
-        System.out.printf("Enter destination file:");
-        String destPath = in.nextLine();
-
+        String sourcePath = "src\\ss17_IO_binary_file_serialization\\bai_tap\\copy_file\\sourcefile.csv";
+        String targetPath = "src\\ss17_IO_binary_file_serialization\\bai_tap\\copy_file\\targetfile.csv";
         File sourceFile = new File(sourcePath);
-        File destFile = new File(destPath);
-
+        File targetFile = new File(targetPath);
         try {
-            copyFileUsingJava7Files(sourceFile, destFile);
-            //copyFileUsingStream(sourceFile, destFile);
-            System.out.printf("Copy completed");
-        } catch (IOException ioe) {
-            System.out.printf("Can't copy that file");
-            System.out.printf(ioe.getMessage());
+            copyFileUsingJava7Files(sourceFile, targetFile);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
+

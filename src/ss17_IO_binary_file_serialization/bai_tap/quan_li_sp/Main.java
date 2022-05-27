@@ -1,4 +1,4 @@
-package ss17_IO_binary_file_serialization.bai_tap;
+package ss17_IO_binary_file_serialization.bai_tap.quan_li_sp;
 
 import java.util.Scanner;
 

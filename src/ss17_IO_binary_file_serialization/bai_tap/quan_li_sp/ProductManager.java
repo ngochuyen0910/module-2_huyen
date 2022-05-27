@@ -1,4 +1,4 @@
-package ss17_IO_binary_file_serialization.bai_tap;
+package ss17_IO_binary_file_serialization.bai_tap.quan_li_sp;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -43,6 +43,14 @@ public class ProductManager {
         productFileList.add(new ProductsFile(3, "Kẹo", "Hàn Quốc", 10000));
     }
 
+    public static void displays() {
+        writeToFile("src\\ss17_IO_binary_file_serialization\\bai_tap\\sanpham.csv", productFileList);
+        readDataFromFile("src\\ss17_IO_binary_file_serialization\\bai_tap\\sanpham.csv");
+        for (ProductsFile productsFile : productFileList) {
+            System.out.println(productsFile);
+        }
+    }
+
     public static void addNew() {
         System.out.println("Nhập mã của sản phẩm: ");
         int id = Integer.parseInt(scanner.nextLine());
@@ -58,19 +66,12 @@ public class ProductManager {
         displays();
     }
 
-    public static void displays() {
-        readDataFromFile("src\\ss17_IO_binary_file_serialization\\bai_tap\\sanpham.csv");
-        for (ProductsFile productsFile : productFileList) {
-            System.out.println(productsFile);
-        }
-    }
-
     public static void search() {
         System.out.println("Nhập tên sản phẩm muốn tìm kiếm: ");
         String inputName = scanner.nextLine();
         readDataFromFile("src\\ss17_IO_binary_file_serialization\\bai_tap\\sanpham.csv");
         for (ProductsFile productsFile : productFileList) {
-            if (productsFile.getNameProduct().equals(inputName)) {
+            if (productsFile.getNameProduct().contains(inputName)) {
                 System.out.println("Thông tin sản phẩm cần tìm: " + productsFile);
             }
         }
