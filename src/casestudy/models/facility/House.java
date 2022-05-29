@@ -1,37 +1,40 @@
 package casestudy.models.facility;
 
 public class House extends Facility {
-    private String roomStandard;
-    private int numberFloor;
+    private String standardRoom;
+    private int Floor;
 
-    public String getRoomStandard() {
-        return roomStandard;
+    public House() {
     }
 
-    public void setRoomStandard(String roomStandard) {
-        this.roomStandard = roomStandard;
+    public House(String idFacility, String namService, double areaUse, int rentalPrice, int rentalPeopleMax, String styleRental, String standardRoom, int floor) {
+        super(idFacility, namService, areaUse, rentalPrice, rentalPeopleMax, styleRental);
+        this.standardRoom = standardRoom;
+        Floor = floor;
     }
 
-    public int getNumberFloor() {
-        return numberFloor;
+    public String getStandardRoom() {
+        return standardRoom;
     }
 
-    public void setNumberFloor(int numberFloor) {
-        this.numberFloor = numberFloor;
+    public void setStandardRoom(String standardRoom) {
+        this.standardRoom = standardRoom;
     }
 
-    public House(String name, double area, double expense, int people, String rentalType, String roomStandard, int numberFloor) {
-        super(name, area, expense, people, rentalType);
-        this.roomStandard = roomStandard;
-        this.numberFloor = numberFloor;
+    public int getFloor() {
+        return Floor;
+    }
+
+    public void setFloor(int floor) {
+        Floor = floor;
     }
 
     @Override
     public String toString() {
         return "House{" +
                 super.toString() +
-                "roomStandard='" + roomStandard + '\'' +
-                ", numberFloor=" + numberFloor +
+                "standardRoom='" + standardRoom + '\'' +
+                ", Floor=" + Floor +
                 '}';
     }
 }

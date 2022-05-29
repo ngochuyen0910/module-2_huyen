@@ -1,48 +1,51 @@
 package casestudy.models.facility;
 
 public class Vila extends Facility {
-    private String roomStandard;
-    private double poolArea;
-    private int numberFloor;
+    private String standardVilla;
+    private double areaPool;
+    private int floor;
 
-    public Vila(String name, double area, double expense, int people, String rentalType, String roomStandard, double poolArea, int numberFloor) {
-        super(name, area, expense, people, rentalType);
-        this.roomStandard = roomStandard;
-        this.poolArea = poolArea;
-        this.numberFloor = numberFloor;
+    public Vila() {
     }
 
-    public String getRoomStandard() {
-        return roomStandard;
+    public Vila(String idFacility, String namService, double areaUse, int rentalPrice, int rentalPeopleMax, String styleRental, String standardVilla, double areaPool, int floor) {
+        super(idFacility, namService, areaUse, rentalPrice, rentalPeopleMax, styleRental);
+        this.standardVilla = standardVilla;
+        this.areaPool = areaPool;
+        this.floor = floor;
     }
 
-    public void setRoomStandard(String roomStandard) {
-        this.roomStandard = roomStandard;
+    public String getStandardVilla() {
+        return standardVilla;
     }
 
-    public double getPoolArea() {
-        return poolArea;
+    public void setStandardVilla(String standardVilla) {
+        this.standardVilla = standardVilla;
     }
 
-    public void setPoolArea(double poolArea) {
-        this.poolArea = poolArea;
+    public double getAreaPool() {
+        return areaPool;
     }
 
-    public int getNumberFloor() {
-        return numberFloor;
+    public void setAreaPool(double areaPool) {
+        this.areaPool = areaPool;
     }
 
-    public void setNumberFloor(int numberFloor) {
-        this.numberFloor = numberFloor;
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
     }
 
     @Override
     public String toString() {
         return "Vila{" +
                 super.toString()+
-                "roomStandard='" + roomStandard + '\'' +
-                ", poolArea=" + poolArea +
-                ", numberFloor=" + numberFloor +
+                "standardVilla='" + standardVilla + '\'' +
+                ", areaPool=" + areaPool +
+                ", floor=" + floor +
                 '}';
     }
 }

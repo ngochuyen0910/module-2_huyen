@@ -44,7 +44,7 @@ public class ProductManager {
     }
 
     public static void displays() {
-        writeToFile("src\\ss17_IO_binary_file_serialization\\bai_tap\\sanpham.csv", productFileList);
+        //writeToFile("src\\ss17_IO_binary_file_serialization\\bai_tap\\sanpham.csv", productFileList);
         readDataFromFile("src\\ss17_IO_binary_file_serialization\\bai_tap\\sanpham.csv");
         for (ProductsFile productsFile : productFileList) {
             System.out.println(productsFile);
@@ -63,7 +63,7 @@ public class ProductManager {
         ProductsFile productsFile = new ProductsFile(id, name, production, price);
         productFileList.add(productsFile);
         writeToFile("src\\ss17_IO_binary_file_serialization\\bai_tap\\sanpham.csv", productFileList);
-        displays();
+        //displays();
     }
 
     public static void search() {

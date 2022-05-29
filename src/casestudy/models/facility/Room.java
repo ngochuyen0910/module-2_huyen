@@ -3,6 +3,14 @@ package casestudy.models.facility;
 public class Room extends Facility {
     private String freeService;
 
+    public Room() {
+    }
+
+    public Room(String idFacility, String namService, double areaUse, int rentalPrice, int rentalPeopleMax, String styleRental, String freeService) {
+        super(idFacility, namService, areaUse, rentalPrice, rentalPeopleMax, styleRental);
+        this.freeService = freeService;
+    }
+
     public String getFreeService() {
         return freeService;
     }
@@ -11,15 +19,10 @@ public class Room extends Facility {
         this.freeService = freeService;
     }
 
-    public Room(String name, double area, double expense, int people, String rentalType, String freeService) {
-        super(name, area, expense, people, rentalType);
-        this.freeService = freeService;
-    }
-
     @Override
     public String toString() {
         return "Room{" +
-                super.toString()+
+                super.toString() +
                 "freeService='" + freeService + '\'' +
                 '}';
     }

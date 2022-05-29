@@ -1,5 +1,7 @@
 package casestudy.models;
 
+import casestudy.models.preson.Customer;
+
 public class Contract {
     private int numberContract;
     private int codeBooking;
@@ -13,6 +15,9 @@ public class Contract {
         this.money = money;
         this.sumMoney = sumMoney;
         this.customerCode = customerCode;
+    }
+
+    public Contract(String id, Booking booking, String pre, String pay, Customer customer) {
     }
 
     public int getNumberContract() {

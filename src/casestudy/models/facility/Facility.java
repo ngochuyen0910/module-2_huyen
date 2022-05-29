@@ -1,71 +1,82 @@
 package casestudy.models.facility;
 
 public abstract class Facility {
-    private String serviceName;
-    private double area;
-    private double expense;
-    private int people;
-    private String rentalType;
+    private String idFacility;
+    private String namService;
+    private double areaUse;
+    private int rentalPrice;
+    private int rentalPeopleMax;
+    private String styleRental;
 
     public Facility() {
     }
 
-    public Facility(String serviceName, double area, double expense, int people, String rentalType) {
-        this.serviceName = serviceName;
-        this.area = area;
-        this.expense = expense;
-        this.people = people;
-        this.rentalType = rentalType;
+    public Facility(String idFacility, String namService, double areaUse, int rentalPrice, int rentalPeopleMax, String styleRental) {
+        this.idFacility = idFacility;
+        this.namService = namService;
+        this.areaUse = areaUse;
+        this.rentalPrice = rentalPrice;
+        this.rentalPeopleMax = rentalPeopleMax;
+        this.styleRental = styleRental;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public String getIdFacility() {
+        return idFacility;
     }
 
-    public void setName(String name) {
-        this.serviceName = name;
+    public void setIdFacility(String idFacility) {
+        this.idFacility = idFacility;
     }
 
-    public double getArea() {
-        return area;
+    public String getNamService() {
+        return namService;
     }
 
-    public void setArea(double area) {
-        this.area = area;
+    public void setNamService(String namService) {
+        this.namService = namService;
     }
 
-    public double getExpense() {
-        return expense;
+    public double getAreaUse() {
+        return areaUse;
     }
 
-    public void setExpense(double expense) {
-        this.expense = expense;
+    public void setAreaUse(double areaUse) {
+        this.areaUse = areaUse;
     }
 
-    public int getPeople() {
-        return people;
+    public int getRentalPrice() {
+        return rentalPrice;
     }
 
-    public void setPeople(int people) {
-        this.people = people;
+    public void setRentalPrice(int rentalPrice) {
+        this.rentalPrice = rentalPrice;
     }
 
-    public String getRentalType() {
-        return rentalType;
+    public int getRentalPeopleMax() {
+        return rentalPeopleMax;
     }
 
-    public void setRentalType(String rentalType) {
-        this.rentalType = rentalType;
+    public void setRentalPeopleMax(int rentalPeopleMax) {
+        this.rentalPeopleMax = rentalPeopleMax;
+    }
+
+    public String getStyleRental() {
+        return styleRental;
+    }
+
+    public void setStyleRental(String styleRental) {
+        this.styleRental = styleRental;
     }
 
     @Override
     public String toString() {
         return "Facility{" +
-                "serviceName='" + serviceName + '\'' +
-                ", area=" + area +
-                ", expense=" + expense +
-                ", people=" + people +
-                ", rentalType='" + rentalType + '\'' +
+                "idFacility=" + idFacility +
+                ", namService='" + namService + '\'' +
+                ", areaUse=" + areaUse +
+                ", rentalPrice=" + rentalPrice +
+                ", rentalPeopleMax=" + rentalPeopleMax +
+                ", styleRental='" + styleRental + '\'' +
                 '}';
     }
 }

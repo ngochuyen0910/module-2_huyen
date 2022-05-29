@@ -1,4 +1,5 @@
 package casestudy.service;
 
-public class CustomerService {
+public interface CustomerService extends Service {
+
 }

@@ -1,23 +1,18 @@
 package casestudy.models.preson;
 
+import java.util.Date;
+
 public class Customer extends Person {
-    private int customerCode;
     private String customerType;
     private String address;
 
-    public Customer(String name, int dateOfBirth, boolean gender, int identityCard, int phoneNumber, String mail, int customerCode, String customerType, String address) {
-        super(name, dateOfBirth, gender, identityCard, phoneNumber, mail);
-        this.customerCode = customerCode;
+    public Customer() {
+    }
+
+    public Customer(int id, String name, String age, boolean gender, int identityCard, int phoneNumber, String mail, String customerType, String address) {
+        super(id, name, age, gender, identityCard, phoneNumber, mail);
         this.customerType = customerType;
         this.address = address;
-    }
-
-    public int getCustomerCode() {
-        return customerCode;
-    }
-
-    public void setCustomerCode(int customerCode) {
-        this.customerCode = customerCode;
     }
 
     public String getCustomerType() {
@@ -39,8 +34,8 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return "Customer{" +
-                super.toString()+
-                "customerCode=" + customerCode +
+                super.toString() +
+                "customerCode=" +
                 ", customerType='" + customerType + '\'' +
                 ", address='" + address + '\'' +
                 '}';

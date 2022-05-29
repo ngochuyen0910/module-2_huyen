@@ -1,11 +1,10 @@
-package ss16_IO_text_file.pai_tap.doc_file_csv;
+package casestudy.utils;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
-
+public class ReadAndWrite {
     public static List<String[]> readFile(String pathFile) {
         File file = new File(pathFile);
         List<String[]> list = new ArrayList<>();
@@ -16,7 +15,6 @@ public class Main {
                 String[] arr = line.split(",");
                 list.add(arr);
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -25,13 +23,25 @@ public class Main {
         return list;
     }
 
-    public static void main(String[] args) {
-        List<String[]> listStr = readFile("src\\ss16_IO_text_file\\pai_tap\\doc_file_csv\\countries.csv");
-
-        for (String[] item : listStr) {
-            Country country = new Country(Integer.parseInt(item[0]), item[1], item[2]);
-            System.out.println(country);
+    public static void writeFile(String pathFile, String data) {
+        File file = new File(pathFile);
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
+        try {
+            fileWriter = new FileWriter(file, true);
+            bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(data);
+            bufferedWriter.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
+
 

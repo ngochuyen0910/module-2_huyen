@@ -1,8 +1,11 @@
 package casestudy.models.preson;
 
+import java.util.Date;
+
 public abstract class Person {
+    private int id;
     private String name;
-    private int dateOfBirth;
+    private String age;
     private boolean gender;
     private int identityCard;
     private int phoneNumber;
@@ -10,14 +13,23 @@ public abstract class Person {
 
     public Person() {
     }
-    public Person(String name, int dateOfBirth, boolean gender, int identityCard, int phoneNumber, String mail) {
+
+    public Person(int id, String name, String age, boolean gender, int identityCard, int phoneNumber, String mail) {
+        this.id = id;
         this.name = name;
-        this.dateOfBirth = dateOfBirth;
+        this.age = age;
         this.gender = gender;
         this.identityCard = identityCard;
         this.phoneNumber = phoneNumber;
         this.mail = mail;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -28,12 +40,12 @@ public abstract class Person {
         this.name = name;
     }
 
-    public int getDateOfBirth() {
-        return dateOfBirth;
+    public String getAge() {
+        return age;
     }
 
-    public void setDateOfBirth(int dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public boolean isGender() {
@@ -71,9 +83,10 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", gender=" + gender +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", gender= " + (isGender() ? "nam" : "nữ") +
                 ", identityCard=" + identityCard +
                 ", phoneNumber=" + phoneNumber +
                 ", mail='" + mail + '\'' +

@@ -1,23 +1,20 @@
 package casestudy.models.preson;
 
-public class Employee extends Person{
-    private int number;
+import java.util.Date;
+
+public class Employee extends Person {
     private String level;
     private String location;
+    private int salary;
 
-    public Employee(String name, int dateOfBirth, boolean gender, int identityCard, int phoneNumber, String mail, int number, String level, String location) {
-        super(name, dateOfBirth, gender, identityCard, phoneNumber, mail);
-        this.number = number;
+    public Employee() {
+    }
+
+    public Employee(int id, String name, String age, boolean gender, int identityCard, int phoneNumber, String mail, String level, String location, int salary) {
+        super(id, name, age, gender, identityCard, phoneNumber, mail);
         this.level = level;
         this.location = location;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
+        this.salary = salary;
     }
 
     public String getLevel() {
@@ -36,13 +33,21 @@ public class Employee extends Person{
         this.location = location;
     }
 
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
-                super.toString()+
-                "number=" + number +
-                ", level='" + level + '\'' +
+                super.toString() +
+                "level='" + level + '\'' +
                 ", location='" + location + '\'' +
+                ", salary=" + salary +
                 '}';
     }
 }
