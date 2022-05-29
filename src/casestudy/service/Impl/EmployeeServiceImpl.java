@@ -16,9 +16,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void display() {
-        for (Employee employee : employeeList) {
-            System.out.println(employee.toString());
+        List<String[]> listStr = ReadAndWrite.readFile("src\\casestudy\\data\\employee.csv");
+        employeeList.clear();
+        for (String[] item : listStr) {
+            if (item.length != 1) {
+                Employee employee = new Employee(Integer.parseInt(item[0]), item[1], item[2], Boolean.parseBoolean(item[3]), Integer.parseInt(item[4]),
+                        Integer.parseInt(item[5]), item[6], item[7], item[8], Integer.parseInt(item[9]));
+                System.out.println(employee);
+                employeeList.add(employee);
+            }
         }
+//        for (Employee employee : employeeList) {
+//            System.out.println(employee.toString());
+//        }
     }
 
     public String getLocation() {

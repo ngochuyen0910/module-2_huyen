@@ -14,18 +14,20 @@ public class CustomerServiceImpl implements CustomerService {
     private Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void display() { ;
+    public void display() {
         List<String[]> listStr = ReadAndWrite.readFile("src\\casestudy\\data\\customer.csv");
         customerList.clear();
         for (String[] item : listStr) {
-            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], Boolean.parseBoolean(item[3]),
-                    Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6], item[7], item[8]);
-            System.out.println(customer);
-            customerList.add(customer);
+            if (item.length != 1) {
+                Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], Boolean.parseBoolean(item[3]),
+                        Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6], item[7], item[8]);
+                System.out.println(customer);
+                customerList.add(customer);
+            }
         }
-        for (Customer item : customerList) {
-            System.out.println(item);
-        }
+//        for (Customer item : customerList) {
+//            System.out.println(item);
+//        }
     }
 
     public String getCustomerType() {
@@ -76,9 +78,9 @@ public class CustomerServiceImpl implements CustomerService {
         String address = scanner.nextLine();
         //readFile();
         Customer customer = new Customer(id, name, age, gender, identityCard, phoneNumber, mail, customerType, address);
-       // customerList.add(customer);
+        // customerList.add(customer);
         String line = customer.getId() + "," + customer.getName() + "," + customer.getAge() + "," + customer.isGender() + "," + customer.getIdentityCard() + "," +
-                customer.getPhoneNumber() + "," + customer.getMail() + "," + customer.getAddress();
+                customer.getPhoneNumber() + "," + customer.getMail() + "," + customer.getCustomerType() + "," + customer.getAddress();
         ReadAndWrite.writeFile("src\\casestudy\\data\\customer.csv", line);
         System.out.println("Đã thêm mới thành công");
     }

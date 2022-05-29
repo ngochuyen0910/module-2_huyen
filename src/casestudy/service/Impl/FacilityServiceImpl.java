@@ -7,10 +7,7 @@ import casestudy.service.FacilityService;
 import casestudy.utils.ReadAndWrite;
 import casestudy.utils.RegexData;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
     public static final String REGEX_STR = "[A-Z][a-z]+";
@@ -29,17 +26,46 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void display() {
         Set<Vila> vilaSet = villaList.keySet();
-        for (Vila vila : vilaSet) {
-            System.out.println(vila);
+        List<String[]> listStr = ReadAndWrite.readFile("src\\casestudy\\data\\villa.csv");
+        vilaSet.clear();
+        for (String[] item : listStr) {
+            if (item.length != 1) {
+                Vila vila = new Vila(item[0], item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5],
+                        item[6], Double.parseDouble(item[7]), Integer.parseInt(item[8]));
+                System.out.println(vila);
+                vilaSet.add(vila);
+            }
         }
+//        for (Vila vila : vilaSet) {
+//            System.out.println(vila);
+//        }
         Set<House> houseSet = houseList.keySet();
-        for (House house : houseSet) {
-            System.out.println(house);
+        List<String[]> list = ReadAndWrite.readFile("src\\casestudy.data\\house.csv");
+        houseSet.clear();
+        for (String[] strings : list) {
+            if (strings.length != 1) {
+                House house = new House(strings[0], strings[1], Double.parseDouble(strings[2]), Integer.parseInt(strings[3]), Integer.parseInt(strings[4]), strings[5],
+                        strings[6], Integer.parseInt(strings[7]));
+                System.out.println(house);
+                houseSet.add(house);
+            }
         }
+//        for (House house : houseSet) {
+//            System.out.println(house);
+//        }
         Set<Room> roomSet = roomList.keySet();
-        for (Room room : roomSet) {
-            System.out.println(room);
+        List<String[]> list1 = ReadAndWrite.readFile("src\\casestudy.data\\room.csv");
+        roomSet.clear();
+        for (String[] string : list1) {
+            if (string.length != 1) {
+                Room room = new Room(string[0], string[1], Double.parseDouble(string[2]), Integer.parseInt(string[3]), Integer.parseInt(string[4]), string[5], string[6]);
+                System.out.println(room);
+                roomSet.add(room);
+            }
         }
+//        for (Room room : roomSet) {
+//            System.out.println(room);
+//        }
     }
 
     @Override
@@ -101,8 +127,8 @@ public class FacilityServiceImpl implements FacilityService {
         int floor = Integer.parseInt(inputFloor());
         Vila vila = new Vila(id, name, areaUse, rentalPrice, rentalPeopleMax, styleRental, standardVilla, areaPool, floor);
         //villaList.put(vila, 0);
-        String line = id + "," + name + "," + areaUse + "," + rentalPrice + "," + rentalPeopleMax + "," + styleRental + "," +
-                standardVilla + "," + standardVilla + "," + areaPool + "," + floor;
+        String line = id + "," + name + "," + areaUse + "," + rentalPrice + "," + rentalPeopleMax + "," + styleRental
+                + "," + standardVilla + "," + areaPool + "," + floor;
         ReadAndWrite.writeFile("src\\casestudy.data\\villa.csv", line);
         System.out.println("Đã thêm mới thành công");
     }
@@ -169,8 +195,8 @@ public class FacilityServiceImpl implements FacilityService {
         String standardRoom = inputStandard();
         int floor = Integer.parseInt(inputFloor());
         House house = new House(id, name, areaUse, rentalPrice, rentalPeopleMax, styleRental, standardRoom, floor);
-        String line = id + "," + name + "," + areaUse + "," + rentalPrice + "," + rentalPeopleMax + "," + styleRental + "," +
-                standardRoom + "," + floor;
+        String line = id + "," + name + "," + areaUse + "," + rentalPrice + "," + rentalPeopleMax + "," + styleRental
+                + "," + standardRoom + "," + floor;
         ReadAndWrite.writeFile("src\\casestudy.data\\house.csv", line);
         System.out.println("Đã thêm mới thành công");
     }
@@ -185,8 +211,8 @@ public class FacilityServiceImpl implements FacilityService {
         String styleRental = getStyleRental();
         String freeService = inputStandard();
         Room room = new Room(id, name, areaUse, rentalPrice, rentalPeopleMax, styleRental, freeService);
-        String line = id + "," + name + "," + areaUse + "," + rentalPrice + "," + rentalPeopleMax + "," + styleRental + "," +
-                freeService;
+        String line = id + "," + name + "," + areaUse + "," + rentalPrice + "," + rentalPeopleMax + "," +
+                styleRental + "," + freeService;
         ReadAndWrite.writeFile("src\\casestudy.data\\room.csv", line);
         System.out.println("Đã thêm mới thành công");
     }

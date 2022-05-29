@@ -36,7 +36,7 @@ public class Customer extends Person {
         return "Customer{" +
                 super.toString() +
                 "customerCode=" +
-                ", customerType='" + customerType + '\'' +
+                "," + customerType + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }
