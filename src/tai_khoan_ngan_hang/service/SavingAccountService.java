@@ -1,4 +1,4 @@
 package tai_khoan_ngan_hang.service;
 
-public interface SavingAccoutService {
+public interface SavingAccountService extends BankAccountService{
 }
