@@ -1,4 +1,4 @@
-package casestudy.utils;
+package casestudy.exception;
 
 public class AgeException extends Exception {
     public AgeException(String message){
