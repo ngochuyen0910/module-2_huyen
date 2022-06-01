@@ -95,6 +95,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void edit() {
+        readFile();
         System.out.println("Nhập vị trí mình muốn sửa: ");
         String inputId = scanner.nextLine();
         for (Customer customer : customerList) {
@@ -104,7 +105,7 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println("Nhập tuổi: ");
                 String age = scanner.nextLine();
                 System.out.println("Nhập giới tính: ");
-                int gender = Integer.parseInt(scanner.nextLine());
+                int gender = getGender();
                 System.out.println("Nhập CMND: ");
                 int identityCard = Integer.parseInt(scanner.nextLine());
                 System.out.println("Nhập SĐT: ");
@@ -125,6 +126,7 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println(customerList);
             }
         }
+        writeFile();
     }
 
     public void readFile() {
@@ -140,6 +142,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public void writeFile() {
+        ReadAndWrite.delete("src\\casestudy\\data\\customer.csv");
         for (Customer customer : customerList) {
             String line = customer.getInfo();
             ReadAndWrite.writeFile("src\\casestudy\\data\\customer.csv", line);
