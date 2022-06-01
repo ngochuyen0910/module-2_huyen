@@ -48,6 +48,26 @@ public class CustomerServiceImpl implements CustomerService {
             }
         } while (true);
     }
+    public int getGender(){
+        do{
+            System.out.println("Chọn giới tính:");
+            System.out.println("1. Nam");
+            System.out.println("2. Nữ");
+            System.out.println("3.Giới tính thứ 3");
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose){
+                case 1:
+                    return 1;
+                case 2:
+                    return 2;
+                case 3:
+                    return 3;
+                default:
+                    System.out.println("Không có giới tính này!!");
+                    getGender();
+            }
+        }while(true);
+    }
 
     @Override
     public void addNew() {
@@ -55,9 +75,9 @@ public class CustomerServiceImpl implements CustomerService {
         String id = scanner.nextLine();
         System.out.println("Nhập tên: ");
         String name = scanner.nextLine();
+        System.out.println("Nhập tuổi: ");
         String age = RegexData.regexAge(scanner.nextLine(), REGEX_BIRTHDAY);
-        System.out.println("Nhập giới tính: ");
-        int gender = Integer.parseInt(scanner.nextLine());
+        int gender = getGender();
         System.out.println("Nhập CMND: ");
         int identityCard = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập SĐT: ");
