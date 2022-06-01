@@ -3,31 +3,23 @@ package casestudy.service.Impl;
 import casestudy.models.preson.Customer;
 import casestudy.service.CustomerService;
 import casestudy.utils.ReadAndWrite;
+import casestudy.utils.RegexData;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
-    private static List<Customer> customerList = new ArrayList<>();
+    private static List<Customer> customerList = new LinkedList<>();
     private Scanner scanner = new Scanner(System.in);
+    private static final String REGEX_BIRTHDAY = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
 
     @Override
     public void display() {
-        List<String[]> listStr = ReadAndWrite.readFile("src\\casestudy\\data\\customer.csv");
-        customerList.clear();
-        for (String[] item : listStr) {
-            if (item.length != 1) {
-                Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], Boolean.parseBoolean(item[3]),
-                        Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6], item[7], item[8]);
-                System.out.println(customer);
-                customerList.add(customer);
-            }
+        readFile();
+        for (Customer item : customerList) {
+            System.out.println(item);
         }
-//        for (Customer item : customerList) {
-//            System.out.println(item);
-//        }
     }
 
     public String getCustomerType() {
@@ -60,13 +52,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void addNew() {
         System.out.println("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        String id = scanner.nextLine();
         System.out.println("Nhập tên: ");
         String name = scanner.nextLine();
-        System.out.println("Nhập tuổi: ");
-        String age = scanner.nextLine();
+        String age = RegexData.regexAge(scanner.nextLine(), REGEX_BIRTHDAY);
         System.out.println("Nhập giới tính: ");
-        boolean gender = Boolean.parseBoolean(scanner.nextLine());
+        int gender = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập CMND: ");
         int identityCard = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập SĐT: ");
@@ -76,27 +67,24 @@ public class CustomerServiceImpl implements CustomerService {
         String customerType = getCustomerType();
         System.out.println("Nhập địa chỉ");
         String address = scanner.nextLine();
-        //readFile();
         Customer customer = new Customer(id, name, age, gender, identityCard, phoneNumber, mail, customerType, address);
-        // customerList.add(customer);
-        String line = customer.getId() + "," + customer.getName() + "," + customer.getAge() + "," + customer.isGender() + "," + customer.getIdentityCard() + "," +
-                customer.getPhoneNumber() + "," + customer.getMail() + "," + customer.getCustomerType() + "," + customer.getAddress();
-        ReadAndWrite.writeFile("src\\casestudy\\data\\customer.csv", line);
+        customerList.add(customer);
+        writeFile();
         System.out.println("Đã thêm mới thành công");
     }
 
     @Override
     public void edit() {
         System.out.println("Nhập vị trí mình muốn sửa: ");
-        int inputEdit = Integer.parseInt(scanner.nextLine());
+        String inputId = scanner.nextLine();
         for (Customer customer : customerList) {
-            if (customer.getId() == inputEdit) {
+            if (customer.getId().equals(inputId)) {
                 System.out.println("Nhập tên: ");
                 String name = scanner.nextLine();
                 System.out.println("Nhập tuổi: ");
                 String age = scanner.nextLine();
                 System.out.println("Nhập giới tính: ");
-                boolean gender = Boolean.parseBoolean(scanner.nextLine());
+                int gender = Integer.parseInt(scanner.nextLine());
                 System.out.println("Nhập CMND: ");
                 int identityCard = Integer.parseInt(scanner.nextLine());
                 System.out.println("Nhập SĐT: ");
@@ -119,21 +107,22 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
-//    public void readFile() {
-//        List<String[]> listStr = ReadAndWrite.readFile("src\\casestudy.data\\customer.csv");
-//        customerList.clear();
-//        for (String[] item : listStr) {
-//            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), Boolean.parseBoolean(item[3]),
-//                    Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6], item[7], item[8]);
-//            customerList.add(customer);
-//        }
-//    }
-//
-//    public void writeFile() {
-//        for (Customer customer : customerList) {
-//            String line = customer.getId() + "," + customer.getName() + "," + customer.getAge() + "," + customer.isGender() + "," + customer.getIdentityCard() + "," +
-//                    customer.getPhoneNumber() + "," + customer.getMail() + customer.getAddress();
-//            ReadAndWrite.writeFile("src\\casestudy.data\\customer.csv", line);
-//        }
-//    }
+    public void readFile() {
+        List<String[]> listStr = ReadAndWrite.readFile("src\\casestudy\\data\\customer.csv");
+        customerList.clear();
+        for (String[] item : listStr) {
+            if (item.length != 1) {
+                Customer customer = new Customer(item[0], item[1], item[2], Integer.parseInt(item[3]),
+                        Integer.parseInt(item[4]), Integer.parseInt(item[5]), item[6], item[7], item[8]);
+                customerList.add(customer);
+            }
+        }
+    }
+
+    public void writeFile() {
+        for (Customer customer : customerList) {
+            String line = customer.getInfo();
+            ReadAndWrite.writeFile("src\\casestudy\\data\\customer.csv", line);
+        }
+    }
 }

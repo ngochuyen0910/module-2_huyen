@@ -28,7 +28,7 @@ public class ReadAndWrite {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter(file, true);
+            fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(data);
             bufferedWriter.newLine();

@@ -16,8 +16,8 @@ public class BookingServiceImpl implements BookingService {
     static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
 
     static {
-        customerList.add(new Customer(1, "Huyền", "18", true, 12345, 678, "huyen@", "vip", "dn"));
-        customerList.add(new Customer(2, "An", "10", false, 12905, 67882, "an@", "vip", "qn"));
+        customerList.add(new Customer("1", "Huyền", "18", 1, 12345, 678, "huyen@", "vip", "dn"));
+        customerList.add(new Customer("2", "An", "10", 1 ,12905, 67882, "an@", "vip", "qn"));
         facilityIntegerMap.put(new Vila("1", "Vila1", 123, 45000, 2, "Day", "Vip", 15, 2), 0);
         facilityIntegerMap.put(new Vila("2", "Vila2", 453, 78000, 9, "Day", "Vip", 89, 9), 0);
     }
@@ -59,7 +59,7 @@ public class BookingServiceImpl implements BookingService {
         int id = Integer.parseInt(scanner.nextLine());
         while (true) {
             for (Customer customer : customerList) {
-                if (id == customer.getId()) {
+                if (customer.getId().equals(id)) {
                     check = false;
                     return customer;
                 }

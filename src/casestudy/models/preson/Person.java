@@ -1,12 +1,11 @@
 package casestudy.models.preson;
 
-import java.util.Date;
 
 public abstract class Person {
-    private int id;
+    private String id;
     private String name;
     private String age;
-    private boolean gender;
+    private int gender;
     private int identityCard;
     private int phoneNumber;
     private String mail;
@@ -14,7 +13,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(int id, String name, String age, boolean gender, int identityCard, int phoneNumber, String mail) {
+    public Person(String id, String name, String age, int gender, int identityCard, int phoneNumber, String mail) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -24,11 +23,11 @@ public abstract class Person {
         this.mail = mail;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -48,11 +47,11 @@ public abstract class Person {
         this.age = age;
     }
 
-    public boolean isGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 
@@ -80,13 +79,15 @@ public abstract class Person {
         this.mail = mail;
     }
 
+    public abstract String getInfo();
+
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", gender= " + (isGender() ? "nam" : "nữ") +
+                ", gender=" + gender +
                 ", identityCard=" + identityCard +
                 ", phoneNumber=" + phoneNumber +
                 ", mail='" + mail + '\'' +

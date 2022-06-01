@@ -9,7 +9,22 @@ public class Customer extends Person {
     public Customer() {
     }
 
-    public Customer(int id, String name, String age, boolean gender, int identityCard, int phoneNumber, String mail, String customerType, String address) {
+    @Override
+        public String getInfo() {
+            return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s"
+                    , super.getId()
+                    , super.getName()
+                    , super.getAge()
+                    , super.getGender()
+                    , super.getIdentityCard()
+                    , super.getPhoneNumber()
+                    , super.getMail()
+                    , this.getCustomerType()
+                    , this.getAddress());
+        }
+
+
+    public Customer(String id, String name, String age, int gender, int identityCard, int phoneNumber, String mail, String customerType, String address) {
         super(id, name, age, gender, identityCard, phoneNumber, mail);
         this.customerType = customerType;
         this.address = address;

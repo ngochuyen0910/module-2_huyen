@@ -7,9 +7,6 @@ import casestudy.service.Impl.*;
 import java.util.Scanner;
 
 public class FuramaController {
-    public static void main(String[] args) {
-        displayMainMenu();
-    }
 
     public static void displayMainMenu() {
         do {

@@ -10,12 +10,25 @@ public class Employee extends Person {
     public Employee() {
     }
 
-    public Employee(int id, String name, String age, boolean gender, int identityCard, int phoneNumber, String mail, String level, String location, int salary) {
+    @Override
+    public String getInfo() {
+        return getId() + "," + getName() + "," + getAge() + "," + getGender() + "," + getIdentityCard() + "," +
+                getPhoneNumber() + "," + getMail() + "," + location + "," + salary;
+    }
+
+    public Employee(String id, String name, String age, int gender, int identityCard, int phoneNumber, String mail, String level, String location, int salary) {
         super(id, name, age, gender, identityCard, phoneNumber, mail);
         this.level = level;
         this.location = location;
         this.salary = salary;
     }
+
+    //    public Employee(String id, String name, String age, int gender, int identityCard, int phoneNumber, String mail, String location, int salary) {
+//        super(id, name, age, gender, identityCard, phoneNumber, mail);
+//        this.level = level;
+//        this.location = location;
+//        this.salary = salary;
+//    }
 
     public String getLevel() {
         return level;
