@@ -1,13 +1,12 @@
 package tai_khoan_ngan_hang.controller;
 
-import tai_khoan_ngan_hang.service.Impl.PayAccountServiceImpl;
-import tai_khoan_ngan_hang.service.Impl.SavingAccountServiceImpl;
+import tai_khoan_ngan_hang.service.Impl.BankAccountServiceImpl;
 
 import java.util.Scanner;
 
 public class BankAccountManagement {
-
     public static void menu() {
+        BankAccountServiceImpl bankAccountService = new BankAccountServiceImpl();
         do {
             int choose = 0;
             boolean check = true;
@@ -27,23 +26,28 @@ public class BankAccountManagement {
                 }
                 switch (choose) {
                     case 1:
-                        addBankAccount();
+                        add();
                         break;
                     case 2:
-                        //savingAccount.add();
+                        bankAccountService.delete();
                         break;
                     case 3:
-                        //customer.search();
+                        bankAccountService.display();
                         break;
+                    case 4:
+                        bankAccountService.search();
+                        break;
+                    case 5:
+                        System.exit(0);
+                    default:
+                        System.out.println("Không có chức năng này!! Bạn chọn lại đi!!!");
                 }
-
             }
         } while (true);
     }
 
-    public static void addBankAccount() {
-        SavingAccountServiceImpl savingAccount = new SavingAccountServiceImpl();
-        PayAccountServiceImpl payAccount = new PayAccountServiceImpl();
+    public static void add() {
+        BankAccountServiceImpl bankAccountService = new BankAccountServiceImpl();
         boolean check = true;
         int choose = 0;
         while (check) {
@@ -58,10 +62,11 @@ public class BankAccountManagement {
             }
             switch (choose) {
                 case 1:
-                    savingAccount.add();
+                    bankAccountService.addSavingAccount();
                     break;
                 case 2:
-                    payAccount.add();
+                    bankAccountService.addPayAccount();
+                    break;
                 case 3:
                     menu();
                 default:

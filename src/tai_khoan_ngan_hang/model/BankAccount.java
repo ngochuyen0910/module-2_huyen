@@ -47,6 +47,7 @@ public abstract class BankAccount {
     public void setDate(String Date) {
         this.date = Date;
     }
+
     public abstract String getInfo();
 
     @Override

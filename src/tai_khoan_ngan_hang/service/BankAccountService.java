@@ -1,7 +1,9 @@
 package tai_khoan_ngan_hang.service;
 
 public interface BankAccountService {
-    void add();
+    void addSavingAccount();
+
+    void addPayAccount();
 
     void delete();
 
