@@ -20,12 +20,17 @@ public class ContactServiceImpl implements ContactService {
         }
         while (!bookingQueue.isEmpty()) {
             Booking booking = bookingQueue.poll();
+
             Customer customer = booking.getCustomer();
+
             System.out.println("Đang tạo hợp đồng cho Booking có thông tin" + booking.toString());
+
             System.out.println("Đang tạo hợp đồng cho Customer có thông tin" + customer.toString());
             String id = scanner.nextLine();
+
             System.out.println("Nhập số tiền trả trước");
             String pre = scanner.nextLine();
+
             System.out.println("Nhập số chi phí");
             String pay = scanner.nextLine();
 
@@ -45,9 +50,5 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public void editContact() {
         System.out.println("Nhập id muốn sửa");
-
-
-
     }
 }
-

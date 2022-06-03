@@ -91,14 +91,23 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void addNewVilla() {
         String id = inputIdVilla();
+
         String name = inputName();
+
         double areaUse = Double.parseDouble(inputAreaUse());
+
         int rentalPrice = Integer.parseInt(inputRentalPrice());
+
         int rentalPeopleMax = Integer.parseInt(inputRentalPeopleMax());
+
         String styleRental = getStyleRental();
+
         String standardVilla = inputStandard();
+
         double areaPool = Double.parseDouble(inputAreaPool());
+
         int floor = Integer.parseInt(inputFloor());
+
         Vila vila = new Vila(id, name, areaUse, rentalPrice, rentalPeopleMax, styleRental, standardVilla, areaPool, floor);
         villaList.put(vila, 0);
         writeFileVilla();
@@ -182,13 +191,21 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void addNewHouse() {
         String id = inputIdHouse();
+
         String name = inputName();
+
         double areaUse = Double.parseDouble(inputAreaUse());
+
         int rentalPrice = Integer.parseInt(inputRentalPrice());
+
         int rentalPeopleMax = Integer.parseInt(inputRentalPeopleMax());
+
         String styleRental = getStyleRental();
+
         String standardRoom = inputStandard();
+
         int floor = Integer.parseInt(inputFloor());
+
         House house = new House(id, name, areaUse, rentalPrice, rentalPeopleMax, styleRental, standardRoom, floor);
         houseList.put(house, 0);
         writeFileHouse();
@@ -220,12 +237,19 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void addNewRoom() {
         String id = inputIdRoom();
+
         String name = inputName();
+
         double areaUse = Double.parseDouble(inputAreaUse());
+
         int rentalPrice = Integer.parseInt(inputRentalPrice());
+
         int rentalPeopleMax = Integer.parseInt(inputRentalPeopleMax());
+
         String styleRental = getStyleRental();
+
         String freeService = inputStandard();
+
         Room room = new Room(id, name, areaUse, rentalPrice, rentalPeopleMax, styleRental, freeService);
         roomList.put(room, 0);
         writeFileRoom();
@@ -252,5 +276,3 @@ public class FacilityServiceImpl implements FacilityService {
         }
     }
 }
-
-

@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
-    //private static List<Employee> employeeList = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     private static final String REGEX_BIRTHDAY = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
 
@@ -78,77 +77,114 @@ public class EmployeeServiceImpl implements EmployeeService {
         } while (true);
     }
 
+    public int getGender() {
+        do {
+            System.out.println("Chọn giới tính:");
+            System.out.println("1. Nam");
+            System.out.println("2. Nữ");
+            System.out.println("3.Giới tính thứ 3");
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
+                case 1:
+                    return 1;
+                case 2:
+                    return 2;
+                case 3:
+                    return 3;
+                default:
+                    System.out.println("Không có giới tính này!!");
+                    getGender();
+            }
+        } while (true);
+    }
+
     @Override
     public void addNew() {
         List<Employee> employeeList = readFile();
         System.out.println("Nhập id: ");
         String id = scanner.nextLine();
+
         System.out.println("Nhập tên: ");
         String name = scanner.nextLine();
+
         System.out.println("Nhập tuổi: ");
         String age = RegexData.regexAge(scanner.nextLine(), REGEX_BIRTHDAY);
-        System.out.println("Nhập giới tính: ");
-        int gender = Integer.parseInt(scanner.nextLine());
+
+        int gender = getGender();
+
         System.out.println("Nhập CMND: ");
         int identityCard = Integer.parseInt(scanner.nextLine());
+
         System.out.println("Nhập SĐT: ");
         int phoneNumber = Integer.parseInt(scanner.nextLine());
+
         System.out.println("Nhập mail: ");
         String mail = scanner.nextLine();
+
         String level = getLevel();
+
         String location = getLocation();
+
         System.out.println("Nhập lương");
         int salary = Integer.parseInt(scanner.nextLine());
+
         Employee employee = new Employee(id, name, age, gender, identityCard, phoneNumber, mail, level, location, salary);
         employeeList.add(employee);
-       writeFile( employeeList);
+        writeFile(employeeList);
         System.out.println("Đã thêm mới thành công");
     }
 
     @Override
     public void edit() {
-//        readFile();
-//        System.out.println("Nhập vị trí mình muốn sửa: ");
-//        String inputEdit = scanner.nextLine();
-//        for (Employee employee :) {
-//            if (employee.getId().equals(inputEdit)) {
-//                System.out.println("Nhập id: ");
-//                int id = Integer.parseInt(scanner.nextLine());
-//                System.out.println("Nhập tên: ");
-//                String name = scanner.nextLine();
-//                System.out.println("Nhập tuổi: ");
-//                String age = scanner.nextLine();
-//                System.out.println("Nhập giới tính: ");
-//                boolean gender = Boolean.parseBoolean(scanner.nextLine());
-//                System.out.println("Nhập CMND: ");
-//                int identityCard = Integer.parseInt(scanner.nextLine());
-//                System.out.println("Nhập SĐT: ");
-//                int phoneNumber = Integer.parseInt(scanner.nextLine());
-//                System.out.println("Nhập mail: ");
-//                String mail = scanner.nextLine();
-//                String level = getLevel();
-//                String location = getLocation();
-//                System.out.println("Nhập lương");
-//                int salary = Integer.parseInt(scanner.nextLine());
-//                employee.setName(name);
-//                employee.setAge(age);
-//                employee.setGender(gender);
-//                employee.setIdentityCard(identityCard);
-//                employee.setPhoneNumber(phoneNumber);
-//                employee.setMail(mail);
-//                employee.setLevel(level);
-//                employee.setLocation(location);
-//                employee.setSalary(salary);
-//                //System.out.println(employeeList);
-//                writeFile();
-//                return;
-//            }
-//        }
+        List<Employee> list = readFile();
+        System.out.println("Nhập vị trí mình muốn sửa: ");
+        String inputEdit = scanner.nextLine();
+        for (Employee employee : list) {
+            if (employee.getId().equals(inputEdit)) {
+
+                System.out.println("Nhập tên: ");
+                String name = scanner.nextLine();
+
+                System.out.println("Nhập tuổi: ");
+                String age = scanner.nextLine();
+
+                System.out.println("Nhập giới tính: ");
+                int gender = Integer.parseInt(scanner.nextLine());
+
+                System.out.println("Nhập CMND: ");
+                int identityCard = Integer.parseInt(scanner.nextLine());
+
+                System.out.println("Nhập SĐT: ");
+                int phoneNumber = Integer.parseInt(scanner.nextLine());
+
+                System.out.println("Nhập mail: ");
+                String mail = scanner.nextLine();
+
+                String level = getLevel();
+
+                String location = getLocation();
+
+                System.out.println("Nhập lương");
+                int salary = Integer.parseInt(scanner.nextLine());
+
+                employee.setName(name);
+                employee.setAge(age);
+                employee.setGender(gender);
+                employee.setIdentityCard(identityCard);
+                employee.setPhoneNumber(phoneNumber);
+                employee.setMail(mail);
+                employee.setLevel(level);
+                employee.setLocation(location);
+                employee.setSalary(salary);
+                writeFile(list);
+                return;
+            }
+        }
     }
 
     public List<Employee> readFile() {
         List<String[]> listStr = ReadAndWrite.readFile("src\\casestudy\\data\\employee.csv");
-        //employeeList.clear();
+
         List<Employee> list = new ArrayList<>();
         for (String[] item : listStr) {
             if (item.length != 1) {
@@ -163,8 +199,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void writeFile(List<Employee> list) {
         String str = "";
         for (Employee employee : list) {
-//            String line = employee.getId() + "," + employee.getName() + "," + employee.getAge() + "," + employee.getGender() + "," + employee.getIdentityCard() + "," +
-//                    employee.getPhoneNumber() + "," + employee.getMail() + "," + employee.getLevel() + "," + employee.getLocation() + "," + employee.getSalary();
             str += employee.getInfo() + "\n";
         }
         ReadAndWrite.writeFile("src\\casestudy\\data\\employee.csv", str);

@@ -48,14 +48,15 @@ public class CustomerServiceImpl implements CustomerService {
             }
         } while (true);
     }
-    public int getGender(){
-        do{
+
+    public int getGender() {
+        do {
             System.out.println("Chọn giới tính:");
             System.out.println("1. Nam");
             System.out.println("2. Nữ");
             System.out.println("3.Giới tính thứ 3");
             int choose = Integer.parseInt(scanner.nextLine());
-            switch (choose){
+            switch (choose) {
                 case 1:
                     return 1;
                 case 2:
@@ -66,27 +67,36 @@ public class CustomerServiceImpl implements CustomerService {
                     System.out.println("Không có giới tính này!!");
                     getGender();
             }
-        }while(true);
+        } while (true);
     }
 
     @Override
     public void addNew() {
         System.out.println("Nhập id: ");
         String id = scanner.nextLine();
+
         System.out.println("Nhập tên: ");
         String name = scanner.nextLine();
+
         System.out.println("Nhập tuổi: ");
         String age = RegexData.regexAge(scanner.nextLine(), REGEX_BIRTHDAY);
+
         int gender = getGender();
+
         System.out.println("Nhập CMND: ");
         int identityCard = Integer.parseInt(scanner.nextLine());
+
         System.out.println("Nhập SĐT: ");
         int phoneNumber = Integer.parseInt(scanner.nextLine());
+
         System.out.println("Nhập mail: ");
         String mail = scanner.nextLine();
+
         String customerType = getCustomerType();
+
         System.out.println("Nhập địa chỉ");
         String address = scanner.nextLine();
+
         Customer customer = new Customer(id, name, age, gender, identityCard, phoneNumber, mail, customerType, address);
         customerList.add(customer);
         writeFile();
@@ -102,19 +112,27 @@ public class CustomerServiceImpl implements CustomerService {
             if (customer.getId().equals(inputId)) {
                 System.out.println("Nhập tên: ");
                 String name = scanner.nextLine();
+
                 System.out.println("Nhập tuổi: ");
                 String age = scanner.nextLine();
+
                 System.out.println("Nhập giới tính: ");
                 int gender = getGender();
+
                 System.out.println("Nhập CMND: ");
                 int identityCard = Integer.parseInt(scanner.nextLine());
+
                 System.out.println("Nhập SĐT: ");
                 int phoneNumber = Integer.parseInt(scanner.nextLine());
+
                 System.out.println("Nhập mail: ");
                 String mail = scanner.nextLine();
+
                 String customerType = getCustomerType();
+
                 System.out.println("Nhập địa chỉ");
                 String address = scanner.nextLine();
+
                 customer.setName(name);
                 customer.setAge(age);
                 customer.setGender(gender);
@@ -125,6 +143,7 @@ public class CustomerServiceImpl implements CustomerService {
                 customer.setAddress(address);
                 System.out.println(customerList);
             }
+
         }
         writeFile();
     }

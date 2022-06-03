@@ -17,11 +17,12 @@ public class BookingServiceImpl implements BookingService {
 
     static {
         customerList.add(new Customer("1", "Huyền", "18", 1, 12345, 678, "huyen@", "vip", "dn"));
-        customerList.add(new Customer("2", "An", "10", 1 ,12905, 67882, "an@", "vip", "qn"));
+        customerList.add(new Customer("2", "An", "10", 1, 12905, 67882, "an@", "vip", "qn"));
         facilityIntegerMap.put(new Vila("1", "Vila1", 123, 45000, 2, "Day", "Vip", 15, 2), 0);
         facilityIntegerMap.put(new Vila("2", "Vila2", 453, 78000, 9, "Day", "Vip", 89, 9), 0);
     }
-    public Set<Booking> sendBooking(){
+
+    public Set<Booking> sendBooking() {
         return bookingSet;
     }
 
@@ -32,11 +33,15 @@ public class BookingServiceImpl implements BookingService {
             id = bookingSet.size();
         }
         Customer customer = chooseCustomer();
+
         Facility facility = chooseFacility();
+
         System.out.println("Nhập ngày bắt đầu thuê : ");
         String startDate = scanner.nextLine();
+
         System.out.println("Nhập ngày trả phòng : ");
         String endDate = scanner.nextLine();
+
         Booking booking = new Booking(id, startDate, endDate, customer, facility);
         bookingSet.add(booking);
         System.out.println("Đã booking thành công ");

@@ -1,7 +1,5 @@
 package casestudy.models.preson;
 
-import java.util.Date;
-
 public class Employee extends Person {
     private String level;
     private String location;

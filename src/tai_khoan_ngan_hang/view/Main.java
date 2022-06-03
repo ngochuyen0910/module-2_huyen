@@ -1,6 +1,6 @@
-package tai_khoan_ngan_hang.view;
+package bai_tap.tai_khoan_ngan_hang.tai_khoan_ngan_hang.view;
 
-import tai_khoan_ngan_hang.controller.BankAccountManagement;
+import bai_tap.tai_khoan_ngan_hang.tai_khoan_ngan_hang.controller.BankAccountManagement;
 
 public class Main {
     public static void main(String[] args) {

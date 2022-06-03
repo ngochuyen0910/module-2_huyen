@@ -28,7 +28,7 @@ public class ReadAndWrite {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter(file,true);
+            fileWriter = new FileWriter(file, true);
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(data);
             bufferedWriter.newLine();
@@ -42,7 +42,8 @@ public class ReadAndWrite {
             }
         }
     }
-    public static void delete(String path){
+
+    public static void delete(String path) {
         File file = new File(path);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
@@ -50,7 +51,6 @@ public class ReadAndWrite {
             fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write("");
-            bufferedWriter.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -62,5 +62,3 @@ public class ReadAndWrite {
         }
     }
 }
-
-
