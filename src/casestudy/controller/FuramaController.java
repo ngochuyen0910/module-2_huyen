@@ -133,10 +133,10 @@ public class FuramaController {
 
             switch (checkException(choose)) {
                 case 1:
-                    bookingService.addBooking();
+                    bookingService.add();
                     break;
                 case 2:
-                    bookingService.displayListBooking();
+                    bookingService.display();
                     break;
                 case 3:
                     contactService.createNewContact();

@@ -1,7 +1,7 @@
 package casestudy.service;
 
 public interface BookingService {
-    void addBooking();
+    void add();
 
-    void displayListBooking();
+    void display();
 }

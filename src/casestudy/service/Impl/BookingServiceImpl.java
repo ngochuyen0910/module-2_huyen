@@ -27,7 +27,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public void addBooking() {
+    public void add() {
         int id = 1;
         if (!bookingSet.isEmpty()) {
             id = bookingSet.size();
@@ -48,7 +48,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public void displayListBooking() {
+    public void display() {
         for (Booking booking : bookingSet) {
             System.out.println(booking.toString());
         }
