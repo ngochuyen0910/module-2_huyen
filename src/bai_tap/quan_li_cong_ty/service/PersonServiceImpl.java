@@ -5,6 +5,7 @@ import bai_tap.quan_li_cong_ty.model.Person;
 import bai_tap.quan_li_cong_ty.model.ProductionStaff;
 import bai_tap.quan_li_cong_ty.utils.NotFoundEmployeeException;
 import bai_tap.quan_li_cong_ty.utils.ReadAndWrite;
+import bai_tap.quan_li_cong_ty.utils.Regex;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,6 +14,32 @@ import java.util.Scanner;
 public class PersonServiceImpl implements PersonService {
     static Scanner scanner = new Scanner(System.in);
     List<Person> personList = new LinkedList<>();
+    private static final String REGEX_INT = "^[0-9]+$";
+    private static final String REGEX_BIRTHDAY = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)" +
+            "(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|" +
+            "[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$" +
+            "|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
+
+    private String wage() {
+        System.out.println("Nhập lương cơ bản");
+        return Regex.wage(REGEX_INT);
+    }
+
+    private String coefficientsSalary() {
+        System.out.println("Nhập hệ số lương");
+        return Regex.coefficientsSalary(REGEX_INT);
+    }
+
+    private String productNumber() {
+        System.out.println("Nhập số lượng sp");
+        return Regex.productNumber(REGEX_INT);
+    }
+
+    private String price() {
+        System.out.println("Nhập giá");
+        return Regex.price(REGEX_INT);
+    }
+
 
     @Override
     public void display() {
@@ -25,8 +52,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public void addProductionStaff() {
         readFile();
-        System.out.println("Nhập id");
-        String id = scanner.nextLine();
+        String id = "" + (Integer.parseInt(personList.get(personList.size() - 1).getId()) + 1);
 
         System.out.println("Nhập mã nhân viên");
         String employeeCode = scanner.nextLine();
@@ -35,16 +61,14 @@ public class PersonServiceImpl implements PersonService {
         String name = scanner.nextLine();
 
         System.out.println("Nhập ngày tháng năm sinh");
-        String dateOfBirth = scanner.nextLine();
+        String dateOfBirth = Regex.regexAge(scanner.nextLine(), REGEX_BIRTHDAY);
 
         System.out.println("Nhập địa chỉ");
         String address = scanner.nextLine();
 
-        System.out.println("Nhập số sản phẩm");
-        int productNumber = Integer.parseInt(scanner.nextLine());
+        int productNumber = Integer.parseInt(productNumber());
 
-        System.out.println("Nhập giá");
-        double price = Double.parseDouble(scanner.nextLine());
+        double price = Double.parseDouble(price());
 
         ProductionStaff productionStaff = new ProductionStaff(id, employeeCode, name, dateOfBirth, address, productNumber, price);
         personList.add(productionStaff);
@@ -55,8 +79,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public void addManagementStaff() {
         readFile();
-        System.out.println("Nhập id");
-        String id = scanner.nextLine();
+        String id = "" + (Integer.parseInt(personList.get(personList.size() - 1).getId()) + 1);
 
         System.out.println("Nhập mã nhân viên");
         String employeeCode = scanner.nextLine();
@@ -70,11 +93,9 @@ public class PersonServiceImpl implements PersonService {
         System.out.println("Nhập địa chỉ");
         String address = scanner.nextLine();
 
-        System.out.println("Nhập lương cơ bản");
-        double wage = Double.parseDouble(scanner.nextLine());
+        double wage = Double.parseDouble(wage());
 
-        System.out.println("Nhập hệ số lương");
-        double coefficientsSalary = Double.parseDouble(scanner.nextLine());
+        double coefficientsSalary = Double.parseDouble(coefficientsSalary());
 
         ManagementStaff managementStaff = new ManagementStaff(id, employeeCode, name, dateOfBirth, address, wage, coefficientsSalary);
         personList.add(managementStaff);
@@ -121,7 +142,7 @@ public class PersonServiceImpl implements PersonService {
         System.out.println("Nhập tên muốn tìm kiếm");
         String inputName = scanner.nextLine();
         for (Person person : personList) {
-            if (person.getEmployeeCode().contains(inputName)) {
+            if (person.getName().contains(inputName)) {
                 System.out.println("Tên cần tìm:" + person);
             }
         }
