@@ -6,13 +6,13 @@ import bai_tap.quan_li_cong_ty.model.ProductionStaff;
 import bai_tap.quan_li_cong_ty.utils.NotFoundEmployeeException;
 import bai_tap.quan_li_cong_ty.utils.ReadAndWrite;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class PersonServiceImpl implements PersonService {
     static Scanner scanner = new Scanner(System.in);
-    List<Person> personList = new ArrayList<>();
+    List<Person> personList = new LinkedList<>();
 
     @Override
     public void display() {
@@ -87,7 +87,7 @@ public class PersonServiceImpl implements PersonService {
     public void delete() {
         do {
             readFile();
-            System.out.println("Nhập mã bệnh án cần xóa: ");
+            System.out.println("Nhập mã nhân viên cần xóa: ");
             String inputEmployeeCode = scanner.nextLine();
             for (Person person : personList) {
                 if (person.getEmployeeCode().equals(inputEmployeeCode)) {
@@ -144,7 +144,7 @@ public class PersonServiceImpl implements PersonService {
                 personList.add(new ManagementStaff(item[0], item[1], item[2], item[3], item[4], Double.parseDouble(item[5]),
                         Double.parseDouble(item[6])));
             } else {
-                personList.add(new ManagementStaff(item[0], item[1], item[2], item[3], item[4], Integer.parseInt(item[5]),
+                personList.add(new ProductionStaff(item[0], item[1], item[2], item[3], item[4], Integer.parseInt(item[5]),
                         Double.parseDouble(item[6])));
             }
         }

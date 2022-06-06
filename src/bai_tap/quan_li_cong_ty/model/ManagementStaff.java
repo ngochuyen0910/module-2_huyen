@@ -31,7 +31,7 @@ public class ManagementStaff extends Person {
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s,%s"
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s"
                 , super.getId()
                 , super.getEmployeeCode()
                 , super.getName()
@@ -40,9 +40,6 @@ public class ManagementStaff extends Person {
                 , this.getWage()
                 , this.getCoefficientsSalary()
                 ,"2");
-
-
-
     }
 
     @Override
