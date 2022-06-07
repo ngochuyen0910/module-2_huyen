@@ -7,7 +7,9 @@ public interface PersonService {
 
     void delete();
 
-    void sort();
+    void sortName();
+
+    void sortDateOfBirth();
 
     void edit();
 }

@@ -1,5 +1,9 @@
 package bai_tap.quan_li_sinh_vien_giao_vien.utils;
 
+import bai_tap.quan_li_sinh_vien_giao_vien.Exception.AgeException;
+import bai_tap.quan_li_sinh_vien_giao_vien.Exception.InvalidIntException;
+import bai_tap.quan_li_sinh_vien_giao_vien.Exception.InvalidPointException;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -27,6 +31,26 @@ public class Regex {
         } while (check);
         return temp;
     }
+
+    public static String inputInt(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidIntException("Bạn đã nhập sai định dạng. Phải là số dương ");
+                }
+
+            } catch (InvalidIntException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
+    }
+
     public static String regexAge(String temp, String regex) {
         boolean check = true;
         while (check) {

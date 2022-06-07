@@ -50,6 +50,7 @@ public class QuanLySinhVienGiaoVien {
                     deletePerson();
                     break;
                 case 4:
+                    sortPerson();
                     break;
                 case 5:
                     editPerson();
@@ -141,6 +142,7 @@ public class QuanLySinhVienGiaoVien {
             }
         } while (true);
     }
+
     public static void editPerson() {
         do {
             System.out.println("--------Chỉnh sửa giáo viên hoặc sinh viên----------");
@@ -157,6 +159,82 @@ public class QuanLySinhVienGiaoVien {
                 case 2:
                     System.out.println("danh sách giáo viên");
                     teacherService.edit();
+                    break;
+                case 3:
+                    menu();
+                    break;
+                default:
+                    System.out.println("Không có option này, xin hãy nhập lại");
+            }
+        } while (true);
+    }
+
+    public static void sortStudent() {
+        do {
+            System.out.println("--------Sắp xếp sinh viên----------");
+            System.out.println("1. Sắp xếp tên tăng dần");
+            System.out.println("2. Sắp xếp ngày sinh giảm dần");
+            System.out.println("3. quay lại menu chính");
+            System.out.println("Enter your choose");
+
+            switch (exceptionPerson(choose)) {
+                case 1:
+                    System.out.println("Sắp xếp tên tăng dần");
+                    studentService.sortName();
+                    break;
+                case 2:
+                    System.out.println("Sắp xếp ngày sinh giảm dần");
+                    studentService.sortDateOfBirth();
+                    break;
+                case 3:
+                    menu();
+                    break;
+                default:
+                    System.out.println("Không có option này, xin hãy nhập lại");
+            }
+        } while (true);
+    }
+    public static void sortTeacher() {
+        do {
+            System.out.println("--------Sắp xếp giảng viên----------");
+            System.out.println("1. Sắp xếp tên tăng dần");
+            System.out.println("2. Sắp xếp ngày sinh giảm dần");
+            System.out.println("3. quay lại menu chính");
+            System.out.println("Enter your choose");
+
+            switch (exceptionPerson(choose)) {
+                case 1:
+                    System.out.println("Sắp xếp tên tăng dần");
+                    studentService.sortName();
+                    break;
+                case 2:
+                    System.out.println("Sắp xếp ngày sinh giảm dần");
+                    studentService.sortDateOfBirth();
+                    break;
+                case 3:
+                    menu();
+                    break;
+                default:
+                    System.out.println("Không có option này, xin hãy nhập lại");
+            }
+        } while (true);
+    }
+    public static void sortPerson() {
+        do {
+            System.out.println("--------Sắp xếp giảng viên hoặc sinh viên----------");
+            System.out.println("1. Sắp xếp giảng viên");
+            System.out.println("2. Sắp xếp sinh viên");
+            System.out.println("3. quay lại menu chính");
+            System.out.println("Enter your choose");
+
+            switch (exceptionPerson(choose)) {
+                case 1:
+                    System.out.println("Sắp xếp giảng viên");
+                    sortTeacher();
+                    break;
+                case 2:
+                    System.out.println("Sắp xếp sinh viên");
+                    sortStudent();
                     break;
                 case 3:
                     menu();

@@ -2,17 +2,17 @@ package bai_tap.quan_li_sinh_vien_giao_vien.service.Impl;
 
 import bai_tap.quan_li_sinh_vien_giao_vien.model.Student;
 import bai_tap.quan_li_sinh_vien_giao_vien.service.StudentService;
-import bai_tap.quan_li_sinh_vien_giao_vien.utils.NotFoundSavingException;
+import bai_tap.quan_li_sinh_vien_giao_vien.Exception.NotFoundSavingException;
+import bai_tap.quan_li_sinh_vien_giao_vien.utils.ComparatorDateOfBirth;
+import bai_tap.quan_li_sinh_vien_giao_vien.utils.ComparatorName;
 import bai_tap.quan_li_sinh_vien_giao_vien.utils.ReadAndWrite;
 import bai_tap.quan_li_sinh_vien_giao_vien.utils.Regex;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class StudentServiceImpl implements StudentService {
     static Scanner scanner = new Scanner(System.in);
-    List<Student> studentList = new ArrayList<>();
+    static List<Student> studentList = new LinkedList<>();
     public static final String REGEX_POINT = "^[0-9]|([1][0-9])|(10)$";
     public static final String REGEX_BIRTH = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)" +
             "(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|" +
@@ -39,15 +39,28 @@ public class StudentServiceImpl implements StudentService {
             }
         } while (true);
     }
+
     private String point() {
         System.out.println("Nhập điểm");
         return Regex.point(REGEX_POINT);
     }
 
+    public String checks() {
+        do {
+            String check = scanner.nextLine();
+            if (check.equals("")) {
+                System.out.println("Không được để trống");
+
+            } else {
+                return check;
+            }
+        } while (true);
+    }
+
     @Override
     public void display() {
         readFile();
-        for(Student student: studentList){
+        for (Student student : studentList) {
             System.out.println(student);
         }
     }
@@ -59,7 +72,7 @@ public class StudentServiceImpl implements StudentService {
         String id = scanner.nextLine();
 
         System.out.println("Nhập họ và tên");
-        String name = scanner.nextLine();
+        String name = checks();
 
         String gender = gender();
 
@@ -67,7 +80,7 @@ public class StudentServiceImpl implements StudentService {
         String dateOfBirth = Regex.regexAge(scanner.nextLine(), REGEX_BIRTH);
 
         System.out.println("Nhập địa chỉ");
-        String address = scanner.nextLine();
+        String address = checks();
 
         System.out.println("Nhập mã sinh viên");
         int studentCode = Integer.parseInt(scanner.nextLine());
@@ -113,8 +126,19 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void sort() {
+    public void sortName() {
+        readFile();
+        Collections.sort(studentList, new ComparatorName());
+        writeFile();
+        display();
+    }
 
+    @Override
+    public void sortDateOfBirth() {
+        readFile();
+        Collections.sort(studentList, new ComparatorDateOfBirth());
+        writeFile();
+        display();
     }
 
     @Override
@@ -122,8 +146,8 @@ public class StudentServiceImpl implements StudentService {
         readFile();
         System.out.println("Nhập id muốn sửa");
         String inputId = scanner.nextLine();
-        for(Student student: studentList){
-            if(student.getId().equals(inputId)){
+        for (Student student : studentList) {
+            if (student.getId().equals(inputId)) {
                 System.out.println("Nhập id");
                 String id = scanner.nextLine();
                 student.setId(id);
